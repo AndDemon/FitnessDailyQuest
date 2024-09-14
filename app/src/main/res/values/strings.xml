@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FitnessDailyQuest</string>
+    <string name="get_started">Get Started</string>
+    <string name="your_name">Your name</string>
+    <string name="your_age">Your age</string>
+    <string name="your_height">Your height</string>
+    <string name="your_weight">Your weight</string>
+    <string name="log_in">Log in</string>
+    <string name="required">Required*</string>
+    <string name="error_age_limit">Age cannot be greater than 125</string>
+    <string name="error_height_limit">Height cannot be greater than 250 cm</string>
+    <string name="error_weight_limit">Weight cannot be greater than 650 kg</string>
+    <string name="error_fill_all_fields">Please fill out all fields</string>
+    <string name="daily_quest">Daily Quest</string>
+    <string name="profile">Profile</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+
+</resources>
