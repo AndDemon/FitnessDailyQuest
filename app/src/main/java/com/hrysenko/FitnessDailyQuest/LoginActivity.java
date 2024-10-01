@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(LoginActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, getString(R.string.login_successful), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

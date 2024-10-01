@@ -1,6 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Base.Theme.FitnessDailyQuest" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
+    <style  name="Base.Theme.FitnessDailyQuest" parent="Theme.Material3.DynamicColors.Light.NoActionBar">
+
+        <item name="android:statusBarColor">?attr/colorSurface</item>
 
     </style>
 

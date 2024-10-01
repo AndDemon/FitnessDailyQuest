@@ -27,6 +27,7 @@ import com.hrysenko.FitnessDailyQuest.R;
 public class MainActivity extends AppCompatActivity {
 
 
+    private static Integer indexbottom = null;
 
     PersonDatabase personDB;
     List<Person> personList;
@@ -34,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         personDB = Room.databaseBuilder(getApplicationContext(), PersonDatabase.class, "PersonDB").build();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -60,25 +60,46 @@ public class MainActivity extends AppCompatActivity {
         });
         bottom_navigation = findViewById(R.id.bottom_navigation);
 
-        // Set initial fragment
-        bottom_navigation.setSelectedItemId(R.id.main);
-        showFragment(new MainMenuFragment());
+        if(indexbottom == null) {
+
+            bottom_navigation.setSelectedItemId(R.id.main);
+
+
+            indexbottom = R.id.main;
+        }else {
+            bottom_navigation.setSelectedItemId(R.id.main);
+
+        }
+        if (indexbottom == R.id.main) {
+            showFragment(new MainMenuFragment());
+        } else if (indexbottom == R.id.dailyQuest) {
+            showFragment(new DailyQuestFragment());
+        } else if (indexbottom == R.id.profile) {
+            showFragment(new ProfileFragment());
+        } else {
+            showFragment(new MainMenuFragment()); // Default case
+        }
+
 
         // Set item selected listener
         bottom_navigation.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
             if (itemId == R.id.main) {
+                indexbottom = R.id.main;
                 showFragment(new MainMenuFragment());
             } else if (itemId == R.id.dailyQuest) {
+                indexbottom = R.id.dailyQuest;
                 showFragment(new DailyQuestFragment());
             } else if (itemId == R.id.profile) {
+                indexbottom = R.id.profile;
                 showFragment(new ProfileFragment());
             }
             return true;
         });
 
     }
+
     private void showFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()

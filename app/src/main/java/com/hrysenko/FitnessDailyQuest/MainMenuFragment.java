@@ -3,62 +3,65 @@ package com.hrysenko.FitnessDailyQuest;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MainMenuFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+
 public class MainMenuFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public MainMenuFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MainMenuFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MainMenuFragment newInstance(String param1, String param2) {
-        MainMenuFragment fragment = new MainMenuFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private TextView userNameText;
+    private PersonDatabase personDB;
+    private List<Person> personList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_menu, container, false);
+
+        // Інфлювання макету фрагменту
+        View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
+
+        // Отримання доступу до TextView
+        userNameText = view.findViewById(R.id.user_name_text);
+
+        // Підключення до бази даних
+        personDB = Room.databaseBuilder(getContext(), PersonDatabase.class, "PersonDB").build();
+
+        // Викликаємо метод для отримання списку користувачів
+        getPersonListInBackground();
+
+        return view;
+    }
+
+    private void getPersonListInBackground() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(() -> {
+
+            personList = personDB.getPersonDAO().getAllPerson();
+
+            handler.post(() -> {
+                if (personList != null && !personList.isEmpty()) {
+                    StringBuilder sb = new StringBuilder();
+                    for (Person p : personList) {
+                        sb.append(p.getName());
+                    }
+
+                    userNameText.setText(sb.toString());
+                } else {
+                    userNameText.setText("Немає користувачів");
+                }
+            });
+        });
     }
 }
