@@ -9,6 +9,9 @@
 <img src="https://github.com/user-attachments/assets/d72ac9b9-74a6-4516-9c6c-a5109c6564ea" alt="Screenshot" width="230"/>
 <img src="https://github.com/user-attachments/assets/69c40355-3556-4297-9bd3-d902ce627cb7" alt="Screenshot" width="230"/>
 
+<a href="https://github.com/AndDemon/FitnessDailyQuest/releases/tag/1.0">
+      ![kisspng-button-direct-download-link-computer-software-5ae049f0ddde19 8451311415246484329088](https://github.com/user-attachments/assets/26fe5d5b-dfff-497f-b900-d66798ec5e5d)
+</a>
 
 ## Функціональні можливості
 
