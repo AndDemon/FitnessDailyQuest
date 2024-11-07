@@ -6,8 +6,8 @@
 
 **DailyQuest** — це персональний фітнес-додаток, який надає користувачам індивідуальні завдання та тренування для досягнення особистих фітнес-цілей. Користувачі можуть додавати власні завдання, отримувати поради, переглядати навчальні відео та відстежувати прогрес. Додаток адаптується до рівня підготовки та поставлених цілей, надаючи завдання відповідно до обраної складності.
 
-<img src="https://github.com/user-attachments/assets/d72ac9b9-74a6-4516-9c6c-a5109c6564ea" alt="Screenshot" width="400"/>
-<img src="https://github.com/user-attachments/assets/69c40355-3556-4297-9bd3-d902ce627cb7" alt="Screenshot" width="400"/>
+<img src="https://github.com/user-attachments/assets/d72ac9b9-74a6-4516-9c6c-a5109c6564ea" alt="Screenshot" width="300"/>
+<img src="https://github.com/user-attachments/assets/69c40355-3556-4297-9bd3-d902ce627cb7" alt="Screenshot" width="300"/>
 
 
 ## Функціональні можливості
