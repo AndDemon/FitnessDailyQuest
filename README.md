@@ -10,7 +10,7 @@
 <img src="https://github.com/user-attachments/assets/69c40355-3556-4297-9bd3-d902ce627cb7" alt="Screenshot" width="230"/>
 
 <a href="https://github.com/AndDemon/FitnessDailyQuest/releases/tag/1.0">
-      ![kisspng-button-direct-download-link-computer-software-5ae049f0ddde19 8451311415246484329088](https://github.com/user-attachments/assets/26fe5d5b-dfff-497f-b900-d66798ec5e5d)
+      <img alt="Releases" src="https://img.shields.io/github/downloads/forzzzzz/Calculator-You/total?color=8E4A4B&label=GitHub downloads&style=for-the-badge">
 </a>
 
 ## Функціональні можливості
